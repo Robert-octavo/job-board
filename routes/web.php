@@ -23,4 +23,4 @@ Route::get('/', function () {
 });
 
 Route::resource('jobs', JobController::class)
-    ->only(['index']);
+    ->only(['index', 'show']);

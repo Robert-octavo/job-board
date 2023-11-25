@@ -18,9 +18,11 @@ use App\Http\Controllers\JobController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return redirect()->route('jobs.index');
-});
+// Route::get('/', function () {
+//     return redirect()->route('jobs.index');
+// });
+
+Route::get('/', fn () => to_route('jobs.index'))->name('home');
 
 Route::resource('jobs', JobController::class)
     ->only(['index', 'show']);

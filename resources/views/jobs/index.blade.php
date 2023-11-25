@@ -28,6 +28,12 @@
                 {{-- to scape the html we use nl2br the e scape the htlm again --}}
                 {!! nl2br(e($job->description)) !!}
             </div>
+
+            <div>
+                <x-link-button :href="route('jobs.show', $job)">
+                    View Job
+                </x-link-button>
+            </div>
         </x-card>
     @endforeach
 </x-layout>

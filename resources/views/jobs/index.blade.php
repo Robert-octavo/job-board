@@ -8,18 +8,19 @@
                 </div>
             </div>
 
-            <div class=" flex justify-between text-slate-500 mb-4 text-sm">
+            <div class=" flex justify-between text-slate-500 mb-4 text-sm items-center">
                 {{-- Left --}}
                 <div class="flex space-x-4">
-                    <div>{{ $job->company }}</div>
+                    <div>Company Name:</div>
                     <div>{{ $job->location }}</div>
                 </div>
 
                 {{-- Right --}}
                 <div class="flex space-x-1 text-xs">
-                    <div class="rounded-md border px2 py-1">{{ Str::ucfirst($job->experience) }}</div>
-                    <div class="rounded-md border px2 py-1">{{ $job->category }}</div>
+                    <x-tag>{{ Str::ucfirst($job->experience) }}</x-tag>
+                    <x-tag>{{ $job->category }}</x-tag>
                 </div>
+            </div>
 
             </div>
 

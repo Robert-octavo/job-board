@@ -22,10 +22,7 @@
 
     </div>
 
-    <div class="text-slate-500 mb-4 text-sm">
-        {{-- to scape the html we use nl2br the e scape the htlm again --}}
-        {!! nl2br(e($job->description)) !!}
-    </div>
+
 
     {{ $slot }}
 </x-card>

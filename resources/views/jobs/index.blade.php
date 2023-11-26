@@ -17,27 +17,14 @@
                 </div>
                 <div>
                     <div class="mb-1 font-semibold">Experience</div>
-                    <label for="experience" class="mb-1 flex items-center">
-                        <input type="radio" name="experience" value="" @checked(!request('experience'))>
-                        <span class="ml-2">All</span>
-                    </label>
-                    <label for="experience" class="mb-1 flex items-center">
-                        {{-- <input type="checkbox" name="experience[]" value="junior" id="junior"
-                            {{ in_array('junior', request('experience', [])) ? 'checked' : '' }}>
-                        <span class="ml-2">Junior</span> --}}
-                        <input type="radio" name="experience" value="entry" @checked('entry' === request('experience'))>
-                        <span class="ml-2">Entry</span>
-                    </label>
-
-                    <label for="experience" class="mb-1 flex items-center">
-                        <input type="radio" name="experience" value="intermediate" @checked('intermediate' === request('experience'))>
-                        <span class="ml-2">Intermediate</span>
-                    </label>
-
-                    <label for="experience" class="mb-1 flex items-center">
-                        <input type="radio" name="experience" value="senior" @checked('senior' === request('experience'))>
-                        <span class="ml-2">Senior</span>
-                    </label>
+                    <x-radio-group name="experience" :options="array_combine(
+                        array_map('ucfirst', \App\Models\Job::$experience),
+                        \App\Models\Job::$experience,
+                    )" />
+                </div>
+                <div>
+                    <div class="mb-1 font-semibold">Category</div>
+                    <x-radio-group name="category" :options="\App\Models\Job::$category" />
                 </div>
             </div>
             <button class="w-full">Filter</button>

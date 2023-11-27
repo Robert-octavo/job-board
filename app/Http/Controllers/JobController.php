@@ -34,7 +34,7 @@ class JobController extends Controller
 
         $filters = request()->only(['search', 'min_salary', 'max_salary', 'experience', 'category']);
 
-        return view('jobs.index', ['jobs' => Job::filter($filters)->paginate(10)]);
+        return view('jobs.index', ['jobs' => Job::with('employer')->filter($filters)->paginate(10)]);
     }
 
     /**

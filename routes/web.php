@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,7 @@ Route::get('/', fn () => to_route('jobs.index'))->name('home');
 
 Route::resource('jobs', JobController::class)
     ->only(['index', 'show']);
+
+Route::get('login', fn () => to_route('auth.create'))->name('login');
+Route::resource('auth', AuthController::class)
+    ->only(['create', 'store']);

@@ -6,6 +6,16 @@
             {{-- to scape the html we use nl2br the e scape the htlm again --}}
             {!! nl2br(e($job->description)) !!}
         </div>
+
+        @can('apply', $job)
+            <x-link-button :href="route('job.application.create', $job)">
+                Apply
+            </x-link-button>
+        @else
+            <div class="text-center text-sm font-medium text-slate-500">
+                You have already applied for this job.
+            </div>
+        @endcan
     </x-job-card>
 
     <x-card class="mb-4">

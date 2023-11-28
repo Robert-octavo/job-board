@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JobApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,10 @@ Route::resource('auth', AuthController::class)
 
 Route::delete('logout', fn () => to_route('auth.destroy'))->name('logout');
 Route::delete('auth', [AuthController::class, 'destroy'])->name('auth.destroy');
+
+
+// Middleware group for authenticated users
+Route::middleware('auth')->group(function () {
+    Route::resource('job.application', JobApplicationController::class)
+        ->only(['create', 'store', 'destroy']);
+});
